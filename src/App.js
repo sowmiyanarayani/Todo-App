@@ -1,10 +1,10 @@
 import { React } from 'react';
 import './App.scss';
-import OutputTodo from './components/OutputTodo';
+import TodoPane from './components/TodoPane';
 
 const App = (context) =>
-	<div className="todoContainer">
-		<OutputTodo { ...context }/>
+	<div>
+		<TodoPane { ...context }/>
 	</div>;
 
 export default App;
