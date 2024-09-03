@@ -1,15 +1,13 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable react/jsx-closing-bracket-location */
 import { React } from 'react';
+
 const EditButton = (context) => {
-	const {
-		state: { input },
-		actions: { EditTodo },
-	} = context;
+	const { state: { input }, actions: { editTodo }} = context;
 
 	return <button
 		disabled={ input === '' }
-		onClick={ EditTodo }
-	       >
+		onClick={ editTodo }
+	>
 		Edit</button>;
 };
 
