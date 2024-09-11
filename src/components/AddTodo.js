@@ -1,13 +1,10 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
 import { React } from 'react';
+import context from '../core/context';
 
-const AddTodo = (context) => {
-	const { state: { input }, actions: { addTodo }} = context;
-
-	return <button
-		disabled={ input === '' }
-		onClick={ addTodo }
-	       >+</button>;
-};
+const AddTodo = () =>
+	<button
+		disabled={ context.state.input === '' }
+		onClick={ context.actions.addTodo }
+	>+</button>;
 
 export default AddTodo;
