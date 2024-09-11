@@ -8,6 +8,7 @@ const seed = {
 	input: '',
 	todos: [],
 	editing: false,
+	filter: 'all',
 };
 
 export default seed;

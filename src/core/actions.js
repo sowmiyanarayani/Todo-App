@@ -20,9 +20,17 @@ const editTodo = (context) => ({ todos: TodoManager.editTodo(context) });
 const toggleCompletion = (context) =>
 	({ todos: TodoManager.toggleCompletion(context) });
 
+const toggleTodos = (context, isComplete) =>
+	({ todos: TodoManager.toggleTodos(context.state.todos, isComplete) });
+
+const clearCompleted = ({ state }) =>
+	({ todos: TodoManager.clearCompleted(state.todos) });
+
+const setFilter = (context, filter) => ({ filter });
+
 const actions = {
 	setInput, addTodo, deleteTodo, setEditing, editTodo,
-	toggleCompletion,
+	toggleCompletion, toggleTodos, clearCompleted, setFilter,
 };
 
 export default actions;
