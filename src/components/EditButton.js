@@ -1,14 +1,9 @@
-/* eslint-disable react/jsx-closing-bracket-location */
 import { React } from 'react';
+import context from '../core/context';
 
-const EditButton = (context) => {
-	const { state: { input }, actions: { editTodo }} = context;
-
-	return <button
-		disabled={ input === '' }
-		onClick={ editTodo }
-	>
-		Edit</button>;
-};
+const EditButton = () => <button
+	disabled={ context.state.input === '' }
+	// eslint-disable-next-line react/jsx-closing-bracket-location
+	onClick={ context.actions.editTodo }>Ok</button>;
 
 export default EditButton;
