@@ -21,22 +21,21 @@ const addText = (todos, text) =>
 	(text === '' ? todos : [...todos, getTodo(text)]);
 
 const deleteTodo = (context) => {
-	const { state: { todos }, data: id } = context;
+	const { state: { todos }, data } = context;
 
-	return todos.filter((filtered) => filtered.id !== id);
+	peek(todos);
+	return todos.filter((select) => select.id !== data);
 };
 
-const editTodo = (context) => {
-	const { state: { todos, editing, input }, state } = context;
-
-	peek(state,);
-	return todos.map((todo) => (todo.id !== editing?.id
+const editTodo = (
+	todos, editing, text
+) =>
+	todos.map((todo) => (todo.id !== editing?.id
 		? todo
 		: {
 			...todo,
-			text: input,
+			text,
 		}));
-};
 
 const toggleCompletion = (context) => {
 	const { state: { todos }, data: id } = context;
@@ -54,17 +53,37 @@ const toggleTodos = (todos, isComplete) => todos.map((todo) => ({
 	completed: isComplete,
 }));
 
+const getActiveCount = (todos) =>
+	todos.filter(filters.active).length;
+
+const getAllCount = (todos) => todos.length;
+
+const clearCompleted = (todos) => todos.filter(filters.active);
+
+const getClearCount = (todos) => todos.filter(filters.completed).length;
+
 const getTodoCount = (todos) => todos.length;
+
+const filterTodo = (todos, filter) => {
+	peek(filter);
+	return todos.filter(filters[filter]);
+};
 
 const hasNoTodos = (todos) => getTodoCount(todos) === 0;
 
-const getActiveCount = (todos) =>
-	todos.filter((todo) => !todo.completed).length;
-const clearCompleted = (todos) => todos.filter(filters.active);
-
 const TodoManager = {
-	addText, deleteTodo, editTodo,
-	toggleCompletion, toggleTodos, hasNoTodos, getActiveCount, clearCompleted,
+	addText,
+	deleteTodo,
+	editTodo,
+	toggleCompletion,
+	toggleTodos,
+	getTodoCount,
+	hasNoTodos,
+	getActiveCount,
+	clearCompleted,
+	getAllCount,
+	getClearCount,
+	filterTodo,
 };
 
 export default TodoManager;

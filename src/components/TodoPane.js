@@ -1,19 +1,26 @@
-import { React } from 'react';
-import InputTodo from './InputTodo';
-import Todo from './Todo';
-import AddTodo from './AddTodo';
+import React from 'react';
 import ToggleAllButton from './ToggleAllButton';
+import InputTodo from './InputTodo';
+import ActionButton from './ActionButton';
 import ClearButton from './ClearButton';
+import FilterBar from './FilterBar';
+import TodoList from './TodoList';
 
-const TodoPane = (context) => <div>
-	<h1>Todo App</h1>
-	<div>
-		<ToggleAllButton { ...context }/>
-		<InputTodo { ...context }/>
-		<AddTodo { ...context }/>
-	</div>
-	<Todo { ...context }/>
-	{ ClearButton() }
-</div>;
+const TodoPane = (context) =>
+	<div className="todoPane">
+		<h1>Todo App</h1>
+		<div className="todoControls">
+			<ToggleAllButton { ...context }/>
+			<InputTodo { ...context }/>
+			{ ActionButton() }
+		</div>
+		<div className="todoList">
+			<TodoList/>
+		</div>
+		<div>
+			<ClearButton { ...context }/>
+		</div>
+		<div>{ FilterBar() }</div>
+	</div>;
 
 export default TodoPane;

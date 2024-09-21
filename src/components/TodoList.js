@@ -4,10 +4,10 @@ import context from '../core/context';
 import TodoManager from '../services/TodoManager.js';
 
 const TodoList = () => {
-	const { todos, filter } = context.state;
+	const { state: { todos, filter }} = context;
 	const filteredTodo = TodoManager.filterTodo(todos, filter);
 
-	return	<div>{	filteredTodo.map(Todo) }</div>;
+	return	<div>{ filteredTodo.map(Todo) }</div>;
 };
 
 export default TodoList;

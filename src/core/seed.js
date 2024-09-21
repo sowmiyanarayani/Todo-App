@@ -7,7 +7,7 @@ const seed = {
 	refreshID: rndString(refreshIDLength),
 	input: '',
 	todos: [],
-	editing: false,
+	editing: null,
 	filter: 'all',
 };
 
