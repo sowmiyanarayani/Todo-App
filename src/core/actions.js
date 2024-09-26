@@ -26,13 +26,13 @@ const editTodo = ({ state }) => ({
 const toggleCompletion = (context) =>
 	({ todos: TodoManager.toggleCompletion(context) });
 
-const toggleTodos = (context, isComplete) =>
-	({ todos: TodoManager.toggleTodos(context.state.todos, isComplete) });
+const toggleTodos = ({ state }, isComplete) =>
+	({ todos: TodoManager.toggleTodos(state.todos, isComplete) });
 
 const clearCompleted = ({ state }) =>
 	({ todos: TodoManager.clearCompleted(state.todos) });
 
-const setFilter = (context, filter) => ({ filter });
+const setFilter = (context) => ({ filter: context.data });
 
 const actions = {
 	setInput,
