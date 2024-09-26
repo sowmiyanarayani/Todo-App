@@ -1,10 +1,10 @@
-/* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable react/jsx-indent-props */
-import { React } from 'react';
+/* eslint-disable no-mixed-spaces-and-tabs */
+import React from 'react';
 import context from '../core/context';
 import TodoManager from '../services/TodoManager.js';
 
-const FilterButton = (filter) => {
+const FilterButton = ({ filter }) => {
 	const { state: { todos }, actions: { setFilter }} = context;
 	const noTodos = TodoManager.getTodoCount(todos) === 0;
 
@@ -13,7 +13,10 @@ const FilterButton = (filter) => {
 		: <button
 			key={ filter }
 			onClick={ () => setFilter(filter) }
-		>{ filter }</button>;
+		  >
+			{ filter }
+		</button>
+	;
 };
 
 export default FilterButton;
