@@ -12,15 +12,11 @@ const TodoPane = (context) =>
 		<div className="todoControls">
 			<ToggleAllButton { ...context }/>
 			<InputTodo { ...context }/>
-			{ ActionButton() }
+			<ActionButton/>
 		</div>
-		<div className="todoList">
-			<TodoList/>
-		</div>
-		<div>
-			<ClearButton { ...context }/>
-		</div>
-		<div>{ FilterBar() }</div>
+		<div><TodoList { ...context }/></div>
+		<div><ClearButton { ...context }/>
+			<FilterBar/></div>
 	</div>;
 
 export default TodoPane;
