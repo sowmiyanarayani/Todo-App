@@ -1,32 +1,49 @@
-
 .todoPane {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color:lightblue;
-    border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color:lightblue;
+  border-radius: 8px;
+	align-items: center;
 }
 
 .todoPane h1 {
-    text-align: center;
-    color:blue;
+  text-align: center;
+  color:blue;
 }
 
 .todoControls {
-    display: flex;
-    margin-bottom: 20px;
+  display: flex;
+  width:50%;
+	align-items: center;
+  margin: 10px auto;
+  padding: 5px;
 }
 
-.todoList {
-    margin: 20px 0;
-    padding: 10px;
+.todo {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin: 5px auto;
+  padding: 5px;
 }
 
-.todoList-item {
-    padding: 20px;
-    border-bottom: 1px solid #962828;
+.filterClear {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
 }
 
-.clearButton {
-    margin-top: 10px;
+.filterClear button {
+  margin: 0 5px;
+  padding: 10px 15px;
+  border-radius: 5px;
+	background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.filterClear button:hover {
+  background-color: green;
 }
