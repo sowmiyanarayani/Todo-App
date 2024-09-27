@@ -1,7 +1,7 @@
 import React from 'react';
 import FilterButton from './FilterButton';
 
-const filters = ['All', 'Active', 'Completed'];
+const filters = ['all', 'active', 'completed'];
 
 const FilterBar = () =>
 	<div>
