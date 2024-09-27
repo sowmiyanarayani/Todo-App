@@ -8,7 +8,7 @@ import TodoList from './TodoList';
 
 const TodoPane = (context) =>
 	<div className="todoPane">
-		<h1>Todo App</h1>
+		<h1>To-Do List</h1>
 		<div className="todoControls">
 			<ToggleAllButton { ...context }/>
 			<InputTodo { ...context }/>
