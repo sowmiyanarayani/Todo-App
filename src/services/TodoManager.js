@@ -11,8 +11,11 @@ const getTodo = (text) => ({
 const addText = (todos, text) =>
 	(text === '' ? todos : [...todos, getTodo(text)]);
 
-const deleteTodo = ({ state: { todos }, data }) =>
-	todos.filter((select) => select.id !== data.id);
+const deleteTodo = (context) => {
+	const { state: { todos }, data } = context;
+
+	return todos.filter((select) => select.id !== data.id);
+};
 
 const editTodo = (
 	todos, editingTodo, text
@@ -21,38 +24,43 @@ const editTodo = (
 		? todo
 		: { ...todo, text }));
 
-const toggleCompletion = ({ state: { todos }, data }) =>
-	todos.map((todo) => (todo.id !== data.id
+const toggleCompletion = (context) => {
+	const { state: { todos }, data } = context;
+
+	return todos.map((todo) => (todo.id !== data.id
 		? todo
 		: { ...todo, completed: !todo.completed }));
+};
 
-const toggleTodos = (todos, isComplete) =>
-	todos.map((todo) => ({ ...todo, completed: isComplete }));
+const toggleTodos = (context) => {
+	const { state: { todos }, data } = context;
 
-const getActiveCount = (todos) =>
-	todos.filter((todo) => !todo.completed).length;
+	return todos.map((todo) => ({ ...todo, completed: data }));
+};
 
-const getAllCount = (todos) => todos.length;
+const getActiveCount = (context) => {
+	const { state: { todos }} = context;
 
-const getClearCount = (todos) =>
-	todos.filter((todo) => todo.completed).length;
+	return todos.filter((todo) => !todo.completed).length;
+};
+
+const getTodoCount = (todos) => todos.length;
+
+const hasNoTodos = (todos) => getTodoCount(todos) === 0;
 
 const clearCompleted = (todos) =>
 	todos.filter((todo) => !todo.completed);
 
-const getTodoCount = (todos) => todos.length;
-
 const filterTodo = (context) => {
+	const { state: { todos, filter }} = context;
 	const filters = {
 		all: () => true,
 		active: (todo) => !todo.completed,
 		completed: (todo) => todo.completed,
 	};
 
-	return context.state.todos.filter(filters[context.state.filter]);
+	return todos.filter(filters[filter]);
 };
-
-const hasNoTodos = (todos) => getTodoCount(todos) === 0;
 
 const TodoManager = {
 	addText,
@@ -64,8 +72,6 @@ const TodoManager = {
 	hasNoTodos,
 	getActiveCount,
 	clearCompleted,
-	getAllCount,
-	getClearCount,
 	filterTodo,
 };
 
