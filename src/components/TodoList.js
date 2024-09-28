@@ -1,6 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
 import TodoManager from '../services/TodoManager';
+
 const TodoList = (context) => {
 	const filteredTodos = TodoManager.filterTodo(context);
 
