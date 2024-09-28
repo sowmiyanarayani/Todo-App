@@ -20,6 +20,7 @@ const deleteTodo = (context) => {
 const editTodo = (
 	todos, editingTodo, text
 ) =>
+
 	todos.map((todo) => (todo.id !== editingTodo?.id
 		? todo
 		: { ...todo, text }));
