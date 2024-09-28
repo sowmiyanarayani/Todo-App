@@ -49,8 +49,11 @@ const getTodoCount = (todos) => todos.length;
 
 const hasNoTodos = (todos) => getTodoCount(todos) === 0;
 
-const clearCompleted = (todos) =>
-	todos.filter((todo) => !todo.completed);
+const clearCompleted = (context) => {
+	const { state: { todos }} = context;
+
+	return todos.filter((todo) => !todo.completed);
+};
 
 const filterTodo = (context) => {
 	const { state: { todos, filter }} = context;
