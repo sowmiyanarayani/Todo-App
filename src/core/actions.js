@@ -29,8 +29,8 @@ const toggleCompletion = (context) =>
 const toggleTodos = (context) =>
 	({ todos: TodoManager.toggleTodos(context) });
 
-const clearCompleted = ({ state }) =>
-	({ todos: TodoManager.clearCompleted(state.todos) });
+const clearCompleted = (context) =>
+	({ todos: TodoManager.clearCompleted(context) });
 
 const setFilter = (context) => ({ filter: context.data });
 
