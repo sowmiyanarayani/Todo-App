@@ -26,8 +26,8 @@ const editTodo = ({ state }) => ({
 const toggleCompletion = (context) =>
 	({ todos: TodoManager.toggleCompletion(context) });
 
-const toggleTodos = ({ state }, isComplete) =>
-	({ todos: TodoManager.toggleTodos(state.todos, isComplete) });
+const toggleTodos = (context) =>
+	({ todos: TodoManager.toggleTodos(context) });
 
 const clearCompleted = ({ state }) =>
 	({ todos: TodoManager.clearCompleted(state.todos) });
