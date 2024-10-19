@@ -9,6 +9,11 @@ const seed = {
 	todos: [],
 	editing: null,
 	filter: 'all',
+	tasks: [
+		{ id: 1, text: 'Task1', completed: false },
+		{ id: 2, text: 'Task2', completed: false },
+		{ id: 3, text: 'Task3', completed: false },
+	],
 };
 
 export default seed;
