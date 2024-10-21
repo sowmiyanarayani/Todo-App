@@ -1,4 +1,7 @@
+/* eslint-disable padding-line-between-statements */
+/* eslint-disable indent */
 import TodoManager from '../services/TodoManager';
+import TaskManager from '../services/TaskManager';
 
 const setInput = ({ data }) => ({ input: data });
 
@@ -34,6 +37,17 @@ const clearCompleted = (context) =>
 
 const setFilter = (context) => ({ filter: context.data });
 
+const addTask = (context) =>
+({ tasks: TaskManager.addTask(context) });
+
+const deleteTask = (context) =>
+({ tasks: TaskManager.deleteTask(context) });
+
+const addTaskTodo = (context) => {
+	const { state: { todos }, data: { text }} = context;
+	return { todos: TodoManager.addText(todos, text)	};
+};
+
 const actions = {
 	setInput,
 	addTodo,
@@ -44,6 +58,9 @@ const actions = {
 	toggleTodos,
 	clearCompleted,
 	setFilter,
+	addTask,
+	deleteTask,
+	addTaskTodo,
 };
 
 export default actions;
