@@ -7,7 +7,7 @@ import TaskPane from './components/TaskPane';
 import Ticker from './services/Ticker';
 
 const App = (context) => {
- useEffect(Ticker, []);
+ useEffect(Ticker(), []);
 
 return <div>
   <TodoPane { ...context }/>
