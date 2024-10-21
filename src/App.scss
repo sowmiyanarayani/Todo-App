@@ -1,49 +1,18 @@
+.appContainer {
+	display: flex;
+	height: 100vh;
+}
+
+.todoPane, .taskPane {
+	justify-content: center;
+	width:50vw;
+	text-align: center;
+}
+
 .todoPane {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color:lightblue;
-  border-radius: 8px;
-	align-items: center;
+	background-color: #53aab9;
 }
 
-.todoPane h1 {
-  text-align: center;
-  color:blue;
-}
-
-.todoControls {
-  display: flex;
-  width:50%;
-	align-items: center;
-  margin: 10px auto;
-  padding: 5px;
-}
-
-.todo {
-  display: flex;
-  align-items: center;
-  width: 50%;
-  margin: 5px auto;
-  padding: 5px;
-}
-
-.filterClear {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.filterClear button {
-  margin: 0 5px;
-  padding: 10px 15px;
-  border-radius: 5px;
-	background-color: #007bff;
-  color: white;
-  cursor: pointer;
-}
-
-.filterClear button:hover {
-  background-color: green;
-}
+.taskPane {
+	background-color: #f0aad8;
+	}

@@ -9,7 +9,7 @@ import Ticker from './services/Ticker';
 const App = (context) => {
  useEffect(Ticker(), []);
 
-return <div>
+return <div className="appContainer">
   <TodoPane { ...context }/>
 	<TaskPane { ...context }/>
 </div>;
