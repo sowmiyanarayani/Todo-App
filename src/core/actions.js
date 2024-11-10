@@ -48,6 +48,11 @@ const addTaskTodo = (context) => {
 	return { todos: TodoManager.addText(todos, text)	};
 };
 
+const setSorted = (context) => {
+	const { state: { sorted }} = context;
+	return { sorted: !sorted };
+};
+
 const actions = {
 	setInput,
 	addTodo,
@@ -61,6 +66,7 @@ const actions = {
 	addTask,
 	deleteTask,
 	addTaskTodo,
+	setSorted,
 };
 
 export default actions;

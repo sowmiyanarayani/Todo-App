@@ -6,7 +6,11 @@ const { refreshIDLength } = config;
 const seed = {
 	refreshID: rndString(refreshIDLength),
 	input: '',
-	todos: [],
+	todos: [
+		{ id: 1, text: 'a', completed: false },
+		{ id: 2, text: 'c', completed: false },
+		{ id: 3, text: 'b', completed: false },
+	],
 	editing: null,
 	filter: 'all',
 	tasks: [
@@ -14,6 +18,7 @@ const seed = {
 		{ id: 2, text: 'Task2', completed: false },
 		{ id: 3, text: 'Task3', completed: false },
 	],
+	sorted: false,
 };
 
 export default seed;
